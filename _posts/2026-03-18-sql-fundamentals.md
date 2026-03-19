@@ -24,6 +24,7 @@ categories: [Coding, SQL]
 - `INSERT INTO {table_name} ({[col_names]}) VALUES ({[values]})`: no need to specify columns if you populate all fields.
 - `UPDATE {table_name} SET {col_name}={value}, {col_name2}={value2} WHERE {condition}`
 - `DELETE FROM {table_name} WHERE {condition}`: deletes entire rows
+
 ### READ
 - `SELECT {[col_names]} FROM {tables} WHERE {...} GROUP BY {...} HAVING {...} ORDER BY {...} LIMIT {...}`: read data from DB
 #### Order of operations
@@ -36,27 +37,30 @@ categories: [Coding, SQL]
 6. `ORDER BY`: 
 7. `LIMIT`: use limit to reduce rows returned. `OFFSET n` to skip some leading rows 
 
-- CTEs and subqueries have the same performance:
-	- use CTEs if you need to reuse the logic multiple times
-	- use subqueries for short inline logic for readability
+CTEs and subqueries have the same performance:
+- use CTEs if you need to reuse the logic multiple time
+- use subqueries for short inline logic for readability
 
 ### Conditional Logic
 
-```
-CASE 
-	WHEN {condition} THEN {value}
-	WHEN {condition} THEN {value}
-ELSE {value} END AS {col_name}
-```
+- ```
+  CASE 
+    WHEN {condition} THEN {value}
+    WHEN {condition} THEN {value}
+  ELSE {value} END AS {col_name}
+  ```
 - Other DB can use `IF({condition}, {valueTRUE}, {valueFALSE})`
 
 ### Aggregations functions
+
 The result set in smaller than the selected set, with cardinality the product of unique number of values of each columns in the group by
 - `COUNT(...), COUNT(DISTINCT ...)`
 - `SUM(...)`
 
 - `STRING_AGG(..., ',' ORDER BY ...)`
+
 ### Window functions
+
 The result set is exactly the same size as the selected set.
 - Compare with other rows
 	- `LEAD(...), LEAD(...,n) OVER (PARTITION BY {[col_names]} ORDER BY {[col_names]})` 
@@ -72,15 +76,17 @@ You can select a moving window by using  a frame clause `ROWS BETWEEN {frame_sta
 - `CURRENT ROW`
 
 ### Type-specific functions
+
 #### Math
 - `MOD(p,q)=r`: returns the reminder of p/q 
 - `GREATEST/LEAST({[col_names]})`: return the largest/smallest of 2 values from a row
 - `FLOOR(n), CEILING(n)`: rounds a number to the immediate smaller/larger integer
-### Date
+
+#### Date
 - `TO_CHAR({date_col}, {str_format})`: converts a date to a specific string format
 - `{date_col}::DATE + INTERVAL '10 days'`: date arithmetic. make sure the {date_col} is cast as a date
 
-### String
+#### String
 - `UPPER(...), LOWER(...), INITCAP(...)`: play with capitalization 
 - `RTRIM(...), LTRIM(...)`: trim whitespaces
 - `LENGTH(...)`
