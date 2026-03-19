@@ -3,7 +3,7 @@ layout: post
 title: SQL Fundamentals
 description: >-
   SQL Cheatsheet covering main functions in PostgreSQL
-author: bcny
+author: bricecny
 date: '2026-03-12 17:39:56 -0700'
 categories: [Coding, SQL]
 ---
