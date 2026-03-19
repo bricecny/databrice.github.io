@@ -9,7 +9,7 @@ categories: [Coding, SQL]
 ---
 
 ## SQL DDL (Data Definition Language) commands
-- ```
+- ```SQL
   CREATE TABLE {schema_name}.{table_name} (
 	  {col_name} {data_type} {constraint?}
 	  )
@@ -27,6 +27,7 @@ categories: [Coding, SQL]
 
 ### READ
 - `SELECT {[col_names]} FROM {tables} WHERE {...} GROUP BY {...} HAVING {...} ORDER BY {...} LIMIT {...}`: read data from DB
+
 #### Order of operations
 `SELECT` is the odd one here, it's 1st in order of writing but 5th in order of operation
 1. `FROM`: use joins to reduce rows returned
@@ -43,7 +44,7 @@ CTEs and subqueries have the same performance:
 
 ### Conditional Logic
 
-- ```
+- ```SQL
   CASE 
     WHEN {condition} THEN {value}
     WHEN {condition} THEN {value}
@@ -94,7 +95,7 @@ You can select a moving window by using  a frame clause `ROWS BETWEEN {frame_sta
 - `ILIKE/LIKE '{regex-like pattern}'`: case in/sensitive string pattern matching
 	- `%`: match any number of characters
 	- `_`: match any 1 character
-	- can escape the previous 2 characters with `\\` or specify another way with `ESCAPE '{char}'
+	- can escape the previous 2 characters with `\\` or specify another way with `ESCAPE '{char}'`
 
 ### Set operations
 These are all made on axis=0 (the opposite of a join)
