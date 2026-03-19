@@ -9,11 +9,12 @@ categories: [Coding, SQL]
 ---
 
 ## SQL DDL (Data Definition Language) commands
-- ```SQL
+
+```sql
   CREATE TABLE {schema_name}.{table_name} (
 	  {col_name} {data_type} {constraint?}
 	  )
-  ```
+```
 - `ALTER`: modify existing object e.g. to add and drop a column to a table
 	- `ALTER TABLE {table_name} ADD {col_name} {data_type}`
 	- `ALTER TABLE {table_name} DROP COLUMN {col_name}`
@@ -44,12 +45,12 @@ CTEs and subqueries have the same performance:
 
 ### Conditional Logic
 
-- ```SQL
+```sql
   CASE 
     WHEN {condition} THEN {value}
     WHEN {condition} THEN {value}
   ELSE {value} END AS {col_name}
-  ```
+```
 - Other DB can use `IF({condition}, {valueTRUE}, {valueFALSE})`
 
 ### Aggregations functions
